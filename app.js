@@ -3,10 +3,9 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const blogsRouter = require('./controllers/blogs')
+// const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
-
-
 
 
 //connect to mongoDB
@@ -31,14 +30,8 @@ app.use(express.json())
 //Not in project yet/ needs to be in a module
 // app.use(middleware.requestLogger)
 
-
 //First Argument is the path base, second is the controllerRouter Module
 app.use('/api/blogs', blogsRouter)
-
-
-
-
-
 
 //Not in index yet/ needs to be in a module
 // app.use(middleware.requestLogger)
