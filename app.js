@@ -7,7 +7,8 @@ const blogsRouter = require('./controllers/blogs')
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
-
+const usersRouter = require('./controllers/users')
+const loginRouter = require('./controllers/login')
 
 //connect to mongoDB
 logger.info('connecting to', config.MONGODB_URI)
@@ -20,7 +21,7 @@ mongoose.connect(config.MONGODB_URI)
   })
 
 
-
+app.use(middleware.tokenToRequestObject)
 app.use(cors())
 
 //Not sure what does / if is needed
@@ -33,6 +34,8 @@ app.use(middleware.requestLogger)
 
 //First Argument is the path base, second is the controllerRouter Module
 app.use('/api/blogs', blogsRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
 
 //Not in index yet/ needs to be in a module
 // app.use(middleware.requestLogger)

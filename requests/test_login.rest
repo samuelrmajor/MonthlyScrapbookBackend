@@ -1,0 +1,61 @@
+GET http://localhost:3003/api/blogs
+
+
+
+#####
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "fakeusername3332",
+    "name": "fakename332",
+    "password": "fakepaseord332"
+}
+
+
+#####
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "fakeusername333",
+    "password": "fakepaseord33"
+}
+
+
+
+
+
+
+
+
+# #####
+# POST http://localhost:3001/api/persons
+# Content-Type: application/json
+
+# {
+#     "name": "",
+#     "number": "911-911-9112"
+# }
+
+# #####
+# POST http://localhost:3001/api/persons
+# Content-Type: application/json
+
+# {
+#     "name": "I am fake name2",
+#     "number": ""
+# }
+
+
+# #####
+# POST http://localhost:3001/api/persons
+# Content-Type: application/json
+
+# {
+#     "name": "Mary Poppendieck",
+#     "number": "911-911-911"
+# }
+
+# #####
+# DELETE http://localhost:3001/api/persons/3
