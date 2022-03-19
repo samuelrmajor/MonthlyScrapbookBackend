@@ -31,6 +31,10 @@ if (error.name === 'ValidationError') {
     return response.status(401).json({
       error: 'invalid token'
     })
+  } else if (error.name === 'TokenExpiredError') {
+    return response.status(401).json({
+      error: 'expiredtoken'
+    })
   }
 
   

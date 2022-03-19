@@ -5,14 +5,6 @@ const Blog = require('../models/blog')
 const User = require('../models/user')
 
 
-// const getTokenFrom = request => {
-//   const authorization = request.get('authorization')
-//   if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
-//     return authorization.substring(7)
-//   }
-//   return null
-// }
-
 
 //Creates new Blog Object
 blogsRouter.post('/', async (request, response) => {
@@ -64,6 +56,10 @@ blogsRouter.delete('/:id', async (request, response) => {
 
 //Updates a specific blog object
 blogsRouter.put('/:id', async (request, response) => {
+  const decodedToken = jwt.verify(request.token, process.env.SECRET)
+  if (!decodedToken.id) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
   const body = request.body
   const blog = {
     title: body.content,

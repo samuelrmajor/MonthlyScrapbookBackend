@@ -14,8 +14,6 @@ describe("Blog Creation", () => {
     await User.deleteMany({})
     const users =[]
     const newblogs = []
-    const myIds = {}
-
     for (let user of helper.initUsers) {
             let result = await api.post('/api/users').send(user)
             users.push(result.body)
@@ -64,9 +62,7 @@ describe("Blog Creation", () => {
     await api
         .post('/api/blogs')
         .send(newBlog)
-        .expect(401)
-
-    
+        .expect(401) 
     })
 
     test('a valid blog can be added', async () => {

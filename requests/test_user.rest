@@ -9,7 +9,7 @@ Content-Type: application/json
 {
     "username": "fakeusername33",
     "name": "fakename33",
-    "password": "fakepassword33"
+    "password": "fakepaseord33"
 }
 
 
