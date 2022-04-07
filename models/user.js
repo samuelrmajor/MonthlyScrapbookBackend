@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
              minlength: 4},
   name: String,
   passwordHash: String,
+  email: String,
   blogs: [
     {
       type: mongoose.Schema.Types.ObjectId,
